@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue第一次程序</title>
+</head>
+<body>
+    <!-- (父组件) -->
+    <div id="app">
+        <div>{{message}}</div>
+        <div>
+            <input type="text" v-model="food">
+           <button @click="addFoods">添加美食</button>
+        </div>
+        <div>
+            <!-- 基本循环出数据 -->
+            <!-- <ul>
+                <li v-for="item in foodList">{{item}}</li>
+            </ul> -->
+            <!-- 使用组件传递值 -->
+            <!-- 父组件  <div id="app"> 的值item放在 title变量，然后传递给子组件这样就可以实现父子组件通信了-->
+            <food-item v-for="item in foodList" :title="item"></food-item>
+        </div>
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        
+        //food-item 组件(子组件)
+        //子组件接收值得属性props;
+        Vue.component('food-item',{
+            props:{
+                title:String
+            },
+            template:` <li class="foodClass">{{title}}</li>`
+        });
+        
+        var app = new Vue({
+            el:'#app',
+            data(){
+                return{
+                    message:'hello Vue!',
+                    food:'',
+                    foodList:[]
+                }
+            },methods:{
+                addFoods(){
+                    this.foodList.push(this.food);
+                    console.log(this.foodList)
+                    this.food='';
+                }
+            }
+        });
+    </script>
+    <style>
+        li {list-style: none;}
+        .foodClass{
+            color:dodgerblue;
+            font-size: 18px;
+            font-weight:bold;
+        }
+    </style>
+</body>
+</html>
