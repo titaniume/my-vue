@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue 组件开发-- 属性、事件、插槽简单应用</title>
+    <style>
+        li{list-style: none;}
+    </style>
+</head>
+<body>
+        <div id="app">
+                <ul>
+                    <!-- <li>
+                        <input type="checkbox">
+                        <span>跑步</span>
+                        <button>删除</button>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <input type="checkbox">
+                        <span>引体向上</span>
+                        <button>删除</button>
+                    </li>
+                 </ul>
+                 <ul>
+                    <li>
+                        <input type="checkbox">
+                        <span>登山</span>
+                        <button>删除</button>
+                    </li> -->
+
+                
+                <!-- 
+                    <todo-item hobby="跑步"></todo-item>
+                    <todo-item hobby="引体向上"></todo-item>
+                    <todo-item hobby="登山"></todo-item> 
+                -->
+                    <todo-item v-for="item in hobbyList" :hobby="item" @delete="handleDelete">
+                            <span>我是Icon默认插槽</span>
+                            <span slot="prefixIcon" slot-scope="props" :style="{color:props.checked ? 'red': 'blue',fontWeight:props.checked ? 'bolder': 'normal',}">我是前缀Icon</span>
+                            <span slot="suffixIcon">我是后缀Icon</span>
+                    </todo-item>
+                 </ul>
+        </div>
+
+    
+        <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            Vue.component('todo-item',{
+                //声明能接受的参数(属性)
+                props:['hobby'],
+                //{{hobby}} 使用传递过过来的hobby
+                data(){
+                    return{
+                        checked:false //默认不选中
+                    }
+                },
+                template:`
+                    <li>
+                        <input type="checkbox" v-model="checked">
+                        <slot name="prefixIcon" v-bind="{checked}"></slot>
+                        <span>{{hobby}}</span>
+                        <slot name="suffixIcon"></slot>
+                        <slot></slot>
+                        <button @click="handleClick">删除</button>
+                    </li>
+                `,
+                methods:{
+                    handleClick(){
+                        this.$emit('delete',this.hobby);
+                    }
+                }
+            });
+
+            new Vue({
+                //提供一个挂载点，我们就可以在里面使用 todo-item了
+                el:'#app',
+                data(){
+                    return{
+                        hobbyList:['跑步','引体向上','登山']
+                    }
+                },methods:{
+                    handleDelete(item){
+                       const index = this.hobbyList.findIndex(a=>a===item);
+                       //console.log(index)
+                       this.hobbyList.splice(index,1);
+                    }
+                }
+            });
+        </script>
+</body>
+</html>
