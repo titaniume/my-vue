@@ -17,7 +17,7 @@
             <my-p title="vue.js" ></my-p> 
             <!-- i引用item组件 -->
             <ul>
-                <my-item v-for="item in list" :name="item.name" :age="item.age" :checked="item.checked">
+                <my-item v-for="item in list" :name="item.name" :age="item.age" :checked="item.checked" @delete="handleDelete">
                     <!-- 具名插槽 -->
                     <!-- <span slot="uf-icon"></span> 2.6之前语法-->
                     <template v-slot:pre-icon="{value}">
@@ -33,7 +33,7 @@
              </ul>
              <!-- 引用list组件 -->
              <my-list>
-                    <my-item v-for="item in list" :name="item.name" :age="item.age" :checked="item.checked">
+                    <my-item v-for="item in list" :name="item.name" :age="item.age" :checked="item.checked" @delete="handleDelete">
                             <!-- 具名插槽 -->
                             <!-- <span slot="uf-icon"></span> 2.6之前语法-->
                             <template v-slot:pre-icon="{value}">
@@ -79,10 +79,15 @@
                             <span>{{name}}</span>
                             <span>{{age}}</span>
                             <slot></slot>
+                            <button @click=handleClick>删除</button>
                         </li>
                 `,data:function(){
                     return{
                         value: Math.random()
+                    }
+                },methods:{
+                    handleClick(e){
+                        this.$emit('delete',this.name);
                     }
                 }
             });
@@ -128,6 +133,13 @@
                             }
                         ]
                     }
+                },methods:{
+                    handleDelete(e){
+                        //ES6 语法 筛选对象数组 有返回值
+                        this.list= this.list.filter((item,key,array) =>{
+                           return item.name == e ? false : true;
+                       });
+                    }  
                 }
             });
 
