@@ -294,7 +294,25 @@ template:`
 
   ```
   vue create hello-world
-  
   ```
 
+- 使用ant design vue
+
+  ~~~
+   npm i --save ant-design-vue
+  ~~~
+
+- 使用路由
+
+  ~~~
+   npm install --save vue-router
+  ~~~
+
+-  安装less
+
+  ~~~
+  npm install less less-loader --save-dev
+  ~~~
+
   
+
