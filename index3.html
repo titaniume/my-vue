@@ -15,8 +15,9 @@
         <div id="app">
             <P>{{message}}</P>
             <my-p title="vue.js" ></my-p> 
-             <ul>
-                 <my-item v-for="item in list" :name="item.name" :age="item.age" :checked="item.checked">
+            <!-- i引用item组件 -->
+            <ul>
+                <my-item v-for="item in list" :name="item.name" :age="item.age" :checked="item.checked">
                     <!-- 具名插槽 -->
                     <!-- <span slot="uf-icon"></span> 2.6之前语法-->
                     <template v-slot:pre-icon="{value}">
@@ -28,19 +29,30 @@
                     <template v-slot:default>
                             我是一个默认插槽
                     </template>
-                 </my-item>
+                </my-item>
              </ul>
-
+             <!-- 引用list组件 -->
              <my-list>
-                 <template v-slot:default>
-                        <my-item v-for="item in list" :name="item.name" :age="item.age" :checked="item.checked"></my-item>
-                 </template>
+                    <my-item v-for="item in list" :name="item.name" :age="item.age" :checked="item.checked">
+                            <!-- 具名插槽 -->
+                            <!-- <span slot="uf-icon"></span> 2.6之前语法-->
+                            <template v-slot:pre-icon="{value}">
+                                <span>作用域插槽:子组件传递过来的值: {{value}}</span>
+                            </template>
+                            <template v-slot:"uf-icon">
+                                    
+                            </template>
+                            <template v-slot:default>
+                                    我是一个默认插槽
+                            </template>
+                        </my-item>
              </my-list>
         </div>
       
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
         <script>
 
+            //测试单个值
             Vue.component('my-p',{
                 props:['title'],
                 template:`
@@ -60,14 +72,14 @@
                     }
                 },
                 template:`
-                    <li>
-                        <slot  name="pre-icon" :value="value"></slot>
-                        <slot name="suf-icon" v-if="checked">😄</slot>
-                        <input type="checkbox" v-model="checked"/>
-                        <span>{{name}}</span>
-                        <span>{{age}}</span>
-                        <slot></slot>
-                    </li>
+                        <li>
+                            <slot  name="pre-icon" :value="value"></slot>
+                            <slot name="suf-icon" v-if="checked">😄</slot>
+                            <input type="checkbox" v-model="checked"/>
+                            <span>{{name}}</span>
+                            <span>{{age}}</span>
+                            <slot></slot>
+                        </li>
                 `,data:function(){
                     return{
                         value: Math.random()
