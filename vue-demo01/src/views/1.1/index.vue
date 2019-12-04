@@ -4,10 +4,10 @@
           <a-tab-pane tab="属性" key="1">
             <Props 
              name="时光是世间最强大的力量!"
-             type="danger"
+              :type="type"
              :list="list"
              :isVisible="true"
-             :on-change="handleChange"
+             :on-change="handlePropChange"
             />
           </a-tab-pane>
           <a-tab-pane tab="事件" key="2" forceRender>Content of Tab Pane 2</a-tab-pane>
@@ -25,6 +25,7 @@ export default {
     },
     data(){
         return{
+          type:"danger",
           list:["aaaa","bbbb","cccc"]
         }
     },
@@ -38,8 +39,9 @@ export default {
       callback(key) {
         console.log(key);
       },
-      handleChange(e){
-        alert(e)
+      handlePropChange(val){
+        debugger
+         this.type = val;
       }
     }
 }

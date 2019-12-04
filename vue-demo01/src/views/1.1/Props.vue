@@ -4,7 +4,7 @@
         <p>type:{{type}}</p>
         <p>list:{{list}}</p>
         <p>isVisible:{{isVisible}}</p>
-        <a-button type="primary">click me</a-button>
+        <a-button type="primary" @click="handleClick">click me change type</a-button>
     </div>
 </template>
 <script>
@@ -15,7 +15,7 @@ export default {
     type:{
       validator:function(value){
        // 这个值必须匹配下列字符串中的一个
-       return ["success","warning","danger"].includes(value);
+        return ["success", "warning", "danger"].includes(value);
       }
     },
     list: {
@@ -44,7 +44,8 @@ export default {
     handleClick(){
        // 不要这么做、不要这么做、不要这么做  
        // this.type = "warning";
-
+       debugger
+      this.onChange(this.type === "success" ? "warning" : "error");
     }
   }
 }
