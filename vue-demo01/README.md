@@ -23,8 +23,6 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-## 属性、事件、插槽
-
 ### 属性
 
 **props**
@@ -138,20 +136,3 @@ type:{
   </template>
 ~~~
 
-##  如何触发组件更新
-
-**任何直接更改DOM的行为都是作死**
-
-**数据包含：**
-
-1. 父元素的属性
-2. 组件自身的状态 
-3. 状态管理器，vuex、Vue.Observable
-
-![img](https://upload-images.jianshu.io/upload_images/11092615-a68238df411616c1.png)
-
-哪些数据做依赖收集，哪些不需要。
-
-Vue实例化的时候，会对Data做一些getter和setter转化（对数据做了中间的代理层，取和设置都会经过代理层，可以在代理层做任何事情）
-
-组件渲染时（也是render）,需要去获取data，用到了就放到watch里面。

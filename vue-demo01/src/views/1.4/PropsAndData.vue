@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     handleBChange() {
-      this.b = "B Change" + Math.random();  //模板template中并没有用到b所有并没有更新
+      this.b = "B Change" + Math.random(); //模板template中并没有用到b所有并没有更新
       console.log("data.b 发生了变化，但是并没有触发子组件更新", this.b);
     }
   }

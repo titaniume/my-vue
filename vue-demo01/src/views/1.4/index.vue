@@ -1,8 +1,20 @@
 <template>
   <div>
-    <p> <a-button type="primary" @click="handleNameChange">change this.name1</a-button> </p> 
-     <p><a-button type="primary" @click="handleInfoChange">change this.info</a-button> </p> 
-     <p><a-button type="primary" @click="handleListChange">change this.list</a-button> </p> 
+    <p>
+      <a-button type="primary" @click="handleNameChange"
+        >change this.name</a-button
+      >
+    </p>
+    <p>
+      <a-button type="primary" @click="handleInfoChange"
+        >change this.info</a-button
+      >
+    </p>
+    <p>
+      <a-button type="primary" @click="handleListChange"
+        >change this.list</a-button
+      >
+    </p>
     <PropsAndData :name="name" :info="info" :list="list"></PropsAndData>
   </div>
 </template>
@@ -16,12 +28,12 @@ export default {
     PropsAndData
   },
   data() {
-    //this.name = name;  //name不在data里，不会做响应式更新
+    //this.name = name; 
     return {
-      name:"",
-      // info: {}, //、info未定义具体的number属性，虽然在data里面，数据发生了变化，但引用类型的地址未发生变化，所以也不会触发组件更新。
-      info:{
-         number: undefined
+      name: "",
+      // info: {}, 
+      info:  {
+        number: undefined
       },
       list: []
     };
