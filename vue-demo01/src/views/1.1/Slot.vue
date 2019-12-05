@@ -1,27 +1,22 @@
 <template>
   <div>
-    <slot/>
-    <slot name="testSlot"/>
-    <slot name="testSlot2" v-bind="{value}"/>
+    <slot />
+    <slot name="testSlot" />
+    <slot name="testSlot2" v-bind="{ value }" />
   </div>
 </template>
 
 <script>
 export default {
-  name:"Slot",
-  props: {
-
-  },
+  name: "Slot",
+  props: {},
   components: {},
-  data () {
+  data() {
     return {
-      value:"测试值"
-    }
+      value: "测试值"
+    };
   },
-  methods: {
-
-  },
-}
+  methods: {}
+};
 </script>
-<style scoped>
-</style>
+<style scoped></style>

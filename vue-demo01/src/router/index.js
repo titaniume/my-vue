@@ -18,11 +18,16 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue")
-  },{
-    path:"/1.1",
+  },
+  {
+    path: "/1.1",
     name: "Vue三大核心概念(属性、事件、插槽)",
-     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/1.1")
+    component: () => import(/* webpackChunkName: "about" */ "../views/1.1")
+  },
+  {
+    path: "/1.4",
+    name: "如何触发组件的更新",
+    component: () => import("../views/1.4")
   }
 ];
 
