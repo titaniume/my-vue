@@ -23,6 +23,8 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+## 属性、事件、插槽
+
 ### 属性
 
 **props**
@@ -135,4 +137,30 @@ type:{
   	作用域插槽:{{value}}
   </template>
 ~~~
+
+## 如何触发组件的更新
+
+Vue 的数据驱动如下图
+
+![img](https://upload-images.jianshu.io/upload_images/11092615-64b101bdf8b5e77e.png)
+
+数据包含：1、父元素的属性 2、组件自身的状态 3、状态管理器，vuex、Vue.Observable
+
+![img](https://upload-images.jianshu.io/upload_images/11092615-a68238df411616c1.png)
+
+哪些数据做依赖收集，哪些不需要。
+
+Vue实例化的时候，会对Data做一些getter和setter转化（对数据做了中间的代理层，取和设置都会经过代理层，可以在代理层做任何事情）
+
+组件渲染时（也是render）,需要去获取data，用到了就放到watch里面。
+
+
+
+1、name不在data里，不会做响应式更新
+
+2、info未定义具体的number属性，虽然在data里面，数据发生了变化，但引用类型的地址未发生变化，所以也不会触发组件更新。
+
+3、模板中并未使用b，所以也不会触发组件的更新
+
+4、this.$forceUpdate()：强制更新的意思 不管数据是否变化
 

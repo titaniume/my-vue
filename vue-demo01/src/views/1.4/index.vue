@@ -50,7 +50,7 @@ export default {
     },
     handleListChange() {
       this.list.push(1, 2, 4, 5);
-      console.log("this.info 发生了变化，但是并没有触发子组件更新", this.info);
+      console.log("this.info 发生了变化，但是并没有触发子组件更新", this.list);
     }
   }
 };
