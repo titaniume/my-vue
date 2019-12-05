@@ -10,6 +10,7 @@
 <script>
 export default {
   name:"Props",
+  inheritAttrs:false,  //如果你不希望组件的根元素继承特性，你可以在组件的选项中设置为false
   props: {
     name:String,
     type:{
@@ -44,12 +45,11 @@ export default {
     handleClick(){
        // 不要这么做、不要这么做、不要这么做  
        // this.type = "warning";
-       debugger
-      this.onChange(this.type === "success" ? "warning" : "error");
+       //这里直接返回 状态给父组件
+      this.onChange(this.type === "success" ? "danger" : "success");
     }
   }
 }
 </script>
 <style scoped>
-
 </style>
