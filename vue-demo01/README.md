@@ -164,3 +164,6 @@ Vue实例化的时候，会对Data做一些getter和setter转化（对数据做�
 
 4、this.$forceUpdate()：强制更新的意思 不管数据是否变化
 
+数组支持响应式更新的方法:push pop shift unshift splice sort reverse
+
+不支持:filter  concat slice

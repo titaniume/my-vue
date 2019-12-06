@@ -28,7 +28,7 @@ const routes = [
     path: "/1.4",
     name: "如何触发组件的更新",
     component: () => import("../views/1.4")
-  }
+  },
 ];
 
 const router = new VueRouter({
