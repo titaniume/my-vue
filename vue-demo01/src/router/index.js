@@ -25,6 +25,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ "../views/1.1")
   },
   {
+    path: "/1.2",
+    name: "双向绑定和单向数据流不冲突",
+    component: () => import(/* webpackChunkName: "about" */ "../views/1.2")
+  },
+  {
     path: "/1.4",
     name: "如何触发组件的更新",
     component: () => import("../views/1.4")
