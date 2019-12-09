@@ -8,7 +8,7 @@
 export default {
   name:"Bargain",//砍价
   props: {
-    modelInfo:Array
+    modelInfo:Object
   },
   components: {},
   data () {

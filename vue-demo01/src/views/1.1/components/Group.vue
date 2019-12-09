@@ -6,7 +6,7 @@
 export default {
   name:"Group",//团购
   props: {
-      modelInfo:Array
+      modelInfo:Object
   },
   components: {},
   data () {

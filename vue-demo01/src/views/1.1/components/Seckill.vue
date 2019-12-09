@@ -6,7 +6,7 @@
 export default {
   name:"Seckill", //秒杀
   props: {
-      modelInfo:Array
+      modelInfo:Object
   },
   components: {},
   data () {

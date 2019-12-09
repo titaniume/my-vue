@@ -6,7 +6,7 @@
 export default {
   name:"Limit",//限购
   props: {
-      modelInfo:Array
+      modelInfo:Object
   },
   components: {},
   data () {
