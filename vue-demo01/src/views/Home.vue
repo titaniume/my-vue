@@ -1,13 +1,14 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <template v-for="i in 11">
-      <div :key="i">
-        <p style="font-size:16px;">
-          <router-link :to="`/1.${i}`">{{ `1.${i}` }}章节</router-link>
-        </p>
-      </div>
-    </template>
+    <div class="box">
+      <template v-for="item in menuList">
+        <div :key="item.id">
+          <p style="font-size:16px;">
+            <router-link :to="`/1.${item.id}`">{{ `1.${item.id}`}}{{item.name}}</router-link>
+          </p>
+        </div>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -19,6 +20,24 @@ export default {
   name: "home",
   components: {
     // HelloWorld
+  },
+  data(){
+    return{
+      menuList:[
+        {id:1,name:'Vue三大核心概念(属性、事件、插槽)'},
+        {id:2,name:'双向绑定和单向数据流不冲突'},
+        {id:3,name:'test'},
+        {id:4,name:'如何触发组件的更新'},
+      ]
+    }
   }
 };
 </script>
+<style scoped>
+  .box{
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+    font-weight: bold
+  }
+</style>
