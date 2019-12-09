@@ -1,4 +1,4 @@
-# vue-demo01
+vue-demo01
 
 ## Project setup
 ```
@@ -137,6 +137,76 @@ type:{
   	作用域插槽:{{value}}
   </template>
 ~~~
+
+
+
+## 虚拟DOM
+
+![image-20191209221304685](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191209221304685.png)
+
+原来我们都是使用jq直接操作dom，系统越来越复杂操作的dom也多 这样操作的事件也错综复杂 这样就引入了vue
+
+![image-20191209221326946](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191209221326946.png)
+
+使用vue底层将数据映射到dom、数据的变化导致dom的更新、dom的变化也很耗性能
+
+那么单数据变化后怎样减少dom的更新?
+
+![image-20191209221342041](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191209221342041.png)
+
+虚拟dom的概念被提出。我们的数据不是渲染到真实的dom节点上而是先通过数据和模板生成一个类似dom树的结构（josn对象）这个对象称为虚拟dom 然后通过算法比较老dom和新dom 最终要改变的真实dom，用算法尽可能的复用老dom 减少因为dom更新带来的性能消耗
+
+![image-20191209221401629](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191209221401629.png)
+
+通常不会跨层级节点移动 同层级比较 减低复杂度
+
+**下面有几种假设的场景**
+
+1. 移动
+
+   ![image-20191209221448363](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191209221448363.png)
+
+   ![image-20191209221519948](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191209221519948.png)
+
+   同级节点没有相同的类型
+
+2. 删除新建
+
+![image-20191209221554277](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191209221554277.png)
+
+同层节点没有相同类型的，C会先删除 然后再B下面新建C,E,F 算法不能达到最优化 （C直接到B下面）
+
+3. 删除新建
+
+   ![image-20191209221625942](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191209221625942.png)
+
+   删除C ,E ,F 比较第二层发现C不见了 然后再新建G,E,F
+
+4. 更新删除新建（无key）
+
+   ![image-20191209221658033](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191209221658033.png)
+
+   
+
+![image-20191209221714749](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191209221714749.png)
+
+算法认为B1改为B2 B2变B1 比较到后面时候 会直接再B2后面新建E,F (E,F如何复用？加key)
+
+5. 移动（有key）
+
+   ![image-20191209221803593](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191209221803593.png)
+
+   每一个节点都有唯一的标识符 进化成了场景一 ，原来通过类型判断 ，现在通过key判断 是唯一的
+
+6. 插入（有key）
+
+![image-20191209221823821](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191209221823821.png)
+
+有key 后面的就不会替换 而是直接插入B4
+
+**注意:自定义组件若有使用的for选好 然后 :key 使用的是index 只是查询没有什么问题 如果list会动态变化 (删除，添加) 那就会有问题**
+
+
 
 ## 如何触发组件的更新
 
