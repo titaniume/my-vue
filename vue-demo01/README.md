@@ -142,7 +142,7 @@ type:{
 
 ## 虚拟DOM
 
-![image-20191209221304685](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191209221304685.png)
+![image-20191209221304685](https://github.com/titaniume/my-vue/blob/master/vue-demo01/jq.png)
 
 原来我们都是使用jq直接操作dom，系统越来越复杂操作的dom也多 这样操作的事件也错综复杂 这样就引入了vue
 
