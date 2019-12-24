@@ -26,8 +26,9 @@ export default {
       menuList:[
         {id:1,name:'Vue三大核心概念(属性、事件、插槽)'},
         {id:2,name:'双向绑定和单向数据流不冲突'},
-        {id:3,name:'test'},
+        {id:3,name:'虚拟Dom'},
         {id:4,name:'如何触发组件的更新'},
+        {id:5,name:'合理应用计算属性和侦听器'}
       ]
     }
   }

@@ -237,3 +237,21 @@ Vue实例化的时候，会对Data做一些getter和setter转化（对数据做�
 数组支持响应式更新的方法:push pop shift unshift splice sort reverse
 
 不支持:filter  concat slice
+
+##  合理应用计算属性和侦听器
+
+**计算属性 computed**
+
+- 减少模板中计算逻辑
+- 数据缓存
+- 依赖固定的数据类型(响应式数据)
+
+**监听器Watch**
+
+- 更加灵活、通用
+- watch 中可以执行任何逻辑、如函数字节流、Ajax异步获取数据、甚至操作DOM
+
+**computed VS watch**
+
+- computed能做的 、watch都能做、反之不行
+- 能用computed的尽量用computed
