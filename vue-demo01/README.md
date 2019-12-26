@@ -260,29 +260,29 @@ Vue实例化的时候，会对Data做一些getter和setter转化（对数据做�
 
 ### 生命周期
 
-![image-20191226223724862](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191226223724862.png)
+![image-20191226223724862](https://upload-images.jianshu.io/upload_images/image-20191226223724862.png)
 
 
 
 **创建阶段**
 
-![image-20191226223827289](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191226223827289.png)
+![image-20191226223827289](https://upload-images.jianshu.io/upload_images/image-20191226223827289.png)
 
 
 
 **更新阶段**
 
-![image-20191226223915094](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191226223915094.png)
+![image-20191226223915094](https://upload-images.jianshu.io/upload_images/image-20191226223915094.png)
 
 
 
 **销毁阶段**
 
-![image-20191226224035677](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191226224035677.png)
+![image-20191226224035677](https://upload-images.jianshu.io/upload_images/image-20191226224035677.png)
 
 ### 函数式组件
 
 
 
 - functional:true
-- 无状态、无实例、没有this上下文、无生命周期 
+- 无状态、无实例、没有this上下文、无生命周期 通常用于
