@@ -260,7 +260,7 @@ Vue实例化的时候，会对Data做一些getter和setter转化（对数据做�
 
 ### 生命周期
 
-![image-20191226223724862](https://upload-images.jianshu.io/upload_images/image-20191226223724862.png)
+![image-20191226223724862](https://github.com/titaniume/my-vue/blob/master/vue-demo01/img/image-20191226223724862.png)
 
 
 
@@ -272,13 +272,13 @@ Vue实例化的时候，会对Data做一些getter和setter转化（对数据做�
 
 **更新阶段**
 
-![image-20191226223915094](https://upload-images.jianshu.io/upload_images/image-20191226223915094.png)
+![image-20191226223915094](https://github.com/titaniume/my-vue/blob/master/vue-demo01/img/image-20191226223915094.png)
 
 
 
 **销毁阶段**
 
-![image-20191226224035677](https://upload-images.jianshu.io/upload_images/image-20191226224035677.png)
+![image-20191226224035677](https://github.com/titaniume/my-vue/blob/master/vue-demo01/img/image-20191226224035677.png)
 
 ### 函数式组件
 
