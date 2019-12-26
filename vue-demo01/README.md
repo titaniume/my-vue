@@ -255,3 +255,34 @@ Vue实例化的时候，会对Data做一些getter和setter转化（对数据做�
 
 - computed能做的 、watch都能做、反之不行
 - 能用computed的尽量用computed
+
+## 生命周期的应用场景和函数式组件
+
+### 生命周期
+
+![image-20191226223724862](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191226223724862.png)
+
+
+
+**创建阶段**
+
+![image-20191226223827289](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191226223827289.png)
+
+
+
+**更新阶段**
+
+![image-20191226223915094](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191226223915094.png)
+
+
+
+**销毁阶段**
+
+![image-20191226224035677](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191226224035677.png)
+
+### 函数式组件
+
+
+
+- functional:true
+- 无状态、无实例、没有this上下文、无生命周期 
