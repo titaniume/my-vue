@@ -266,7 +266,7 @@ Vue实例化的时候，会对Data做一些getter和setter转化（对数据做�
 
 **创建阶段**
 
-![image-20191226223827289](https://upload-images.jianshu.io/upload_images/image-20191226223827289.png)
+![image-20191226223827289](https://github.com/titaniume/my-vue/blob/master/vue-demo01/img/image-20191226223724862.png)
 
 
 
