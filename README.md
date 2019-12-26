@@ -311,7 +311,7 @@ template:`
 -  安装less
 
   ~~~
-  npm install less less-loader --save-dev
+    npm install less less-loader --save-dev
   ~~~
 
   
