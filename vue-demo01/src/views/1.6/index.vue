@@ -17,24 +17,32 @@
           </template>
         </TempVar>
       </a-tab-pane>
+      <a-tab-pane key="Spike" tab="秒杀组件" >
+        <Spike :start-time="startTime" :end-time="endTime"></Spike>
+      </a-tab-pane>
     </a-tabs>
   </div>
 </template>
 <script>
+import moment from "moment";
 import Clock from "./components/Clock";
 import Functional from "./components/Functional"
 import TempVar  from "./components/TempVar";
+import Spike from "./components/Spike";
 export default {
   name: 'index',
   components: {
     Clock,
     Functional,
-    TempVar
+    TempVar,
+    Spike
   },
   data() {
     return {
        destroyClock: false,
-        name: "vue"
+        name: "vue",
+        startTime: moment("2019-12-30 11:41:00"),
+        endTime: moment("2019-12-30 11:43:00")
     };
   },
 };
