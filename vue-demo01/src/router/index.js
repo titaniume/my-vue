@@ -54,6 +54,11 @@ const routes = [
     name: "指令的本质",
     component: () => import( /* webpackChunkName: "about" */ "../views/1.7")
   },
+  {
+    path: "/1.8",
+    name: "常用高级特性provide/inject",
+    component: () => import( /* webpackChunkName: "about" */ "../views/1.8")
+  },
 ];
 
 const router = new VueRouter({

@@ -246,7 +246,7 @@ Vue实例化的时候，会对Data做一些getter和setter转化（对数据做�
 - 数据缓存
 - 依赖固定的数据类型(响应式数据)
 
-**监听器Watch**
+**监听`器Watch**
 
 - 更加灵活、通用
 - watch 中可以执行任何逻辑、如函数字节流、Ajax异步获取数据、甚至操作DOM
@@ -286,3 +286,62 @@ Vue实例化的时候，会对Data做一些getter和setter转化（对数据做�
 
 - functional:true
 - 无状态、无实例、没有this上下文、无生命周期 通常用于
+
+## 指令的本质
+
+### 内置指令
+
+- v-text
+- v-html
+- v-show
+- v-if
+- v-else
+- v-else-if
+- v-for
+- v-on
+- v-bind
+- v-model
+- v-slot
+- v-pre
+- v-cloak
+- v-once
+
+**标志位、语法糖**
+
+编译阶段会把template 编译成render函数时候会把这些语法糖编译成js代码 这也就是jsx和render函数不支持内置指令的原因。
+
+### 自定义指令
+
+- bind
+- inserted
+- update
+- componentUpdated
+- unbind
+
+生命周期钩子
+
+## 常用高级特性provide/inject
+
+**组件通信**
+
+![image-20191231233118375](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191231233118375.png)
+
+孙子组件或更深层次的组件通信
+
+A 节点和E 节点通信 E
+
+A节点provide 提供数据  E节点inject注入数据 ，E节点通过层及冒泡去A节点取数据
+
+
+
+**1.provide就相当于加强版父组件prop**
+
+**2.inject就相当于加强版子组件的props** 
+
+因为以上两者可以在父组件与子组件、孙子组件、曾孙子...组件数据交互，也就是说不仅限于prop的父子组件数据交互，只要在上一层级的声明的provide，那么下一层级无论多深都能够通过inject来访问到provide的数据
+
+缺点:
+
+这么做也是有明显的缺点的，在任意层级都能访问导致数据追踪比较困难，不知道是哪一个层级声明了这个或者不知道哪一层级或若干个层级使用了，因此这个属性通常并不建议使用能用vuex的使用vuex，不能用的多传参几层，但是在做组件库开发时，不对vuex进行依赖，且不知道用户使用环境的情况下可以很好的使用
+
+

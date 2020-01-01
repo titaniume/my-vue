@@ -30,7 +30,8 @@ export default {
         {id:4,name:'如何触发组件的更新'},
         {id:5,name:'合理应用计算属性和侦听器'},
         {id:6,name:'生命周期的应用场景和函数式组件'},
-        {id:7,name:'指令的本质'}
+        {id:7,name:'指令的本质'},
+        {id:8,name:'常用高级特性provide/inject'}
       ]
     }
   }
