@@ -324,7 +324,7 @@ Vue实例化的时候，会对Data做一些getter和setter转化（对数据做�
 
 **组件通信**
 
-![image-20191231233118375](C:\Users\huangrenfie\AppData\Roaming\Typora\typora-user-images\image-20191231233118375.png)
+![image-20191231233118375](https://github.com/titaniume/my-vue/blob/master/vue-demo01/img/image-20191231233118375.png)
 
 孙子组件或更深层次的组件通信
 
