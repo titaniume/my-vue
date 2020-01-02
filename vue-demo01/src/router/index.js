@@ -59,6 +59,11 @@ const routes = [
     name: "常用高级特性provide/inject",
     component: () => import( /* webpackChunkName: "about" */ "../views/1.8")
   },
+  {
+    path: "/1.9",
+    name: "如何优雅的获取跨层级组件(拒绝递归)",
+    component: () => import( /* webpackChunkName: "about" */ "../views/1.9")
+  },
 ];
 
 const router = new VueRouter({
