@@ -120,7 +120,9 @@ const router = new Router({
 });
 
 router.beforeEach((to, form, next) => {
-  Nprogress.start();
+  if (to.path !== form.path) {
+    Nprogress.start();
+  }
   next();
 });
 

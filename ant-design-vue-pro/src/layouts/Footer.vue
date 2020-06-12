@@ -1,5 +1,5 @@
 <template>
-  <div>Footer</div>
+  <div>Ant Design @2020 Created by Titaniumes</div>
 </template>
 
 <script>
