@@ -1,5 +1,5 @@
 <template>
-  <div>Home</div>
+  <div>403</div>
 </template>
 
 <script>

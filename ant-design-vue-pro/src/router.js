@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home';
 import NotFound from './views/404';
+import Forbidden from './views/403';
 import Nprogress from 'nprogress';
 import 'nprogress/nprogress.css';
 
@@ -13,33 +13,34 @@ const router = new Router({
   routes: [
     {
       path: '/user',
+      hideInMenu: true,
       component: () =>
-        import(/*webpackChunkName:"layout",*/ './layouts/UserLayout'),
+        import(/* webpackChunkName: "layout" */ './layouts/UserLayout'),
       children: [
         {
           path: '/user',
-          redirect: '/user/Login',
+          redirect: '/user/login',
         },
         {
           path: '/user/login',
           name: 'login',
           component: () =>
-            import(/*webpackChunkName:"user",*/ './views/User/Login'),
+            import(/* webpackChunkName: "user" */ './views/User/Login'),
         },
         {
           path: '/user/register',
           name: 'register',
           component: () =>
-            import(/*webpackChunkName:"user",*/ './views/User/Register'),
+            import(/* webpackChunkName: "user" */ './views/User/Register'),
         },
       ],
     },
     {
       path: '/',
       component: () =>
-        import(/*webpackChunkName:"layout",*/ './layouts/BasicLayout'),
+        import(/* webpackChunkName: "layout" */ './layouts/BasicLayout'),
       children: [
-        //dashbord
+        // dashboard
         {
           path: '/',
           redirect: '/dashboard/analysis',
@@ -47,35 +48,43 @@ const router = new Router({
         {
           path: '/dashboard',
           name: 'dashboard',
+          meta: { icon: 'dashboard', title: '仪表盘' },
           component: { render: h => h('router-view') },
           children: [
             {
               path: '/dashboard/analysis',
-              name: 'dashboard',
+              name: 'analysis',
+              meta: { title: '分析页' },
               component: () =>
                 import(
-                  /*webpackChunkName:"dashboard",*/ './views/dashboard/Analysis'
+                  /* webpackChunkName: "dashboard" */ './views/Dashboard/Analysis'
                 ),
             },
           ],
         },
-        //form
+        // form
         {
           path: '/form',
           name: 'form',
           component: { render: h => h('router-view') },
+          meta: { icon: 'form', title: '表单' },
           children: [
             {
               path: '/form/basic-form',
-              name: 'bsicform',
+              name: 'basicform',
+              meta: { title: '基础表单' },
               component: () =>
-                import(/*webpackChunkName:"form",*/ './views/Forms/BasicForm'),
+                import(
+                  /* webpackChunkName: "form" */ './views/Forms/BasicForm'
+                ),
             },
             {
-              path: '/fomr/step-form',
+              path: '/form/step-form',
               name: 'stepform',
+              hideChildrenInMenu: true,
+              meta: { title: '分布表单' },
               component: () =>
-                import(/*webpackChunkName:"form",*/ './views/Forms/StepForm'),
+                import(/* webpackChunkName: "form" */ './views/Forms/StepForm'),
               children: [
                 {
                   path: '/form/step-form',
@@ -86,7 +95,7 @@ const router = new Router({
                   name: 'info',
                   component: () =>
                     import(
-                      /*webpackChunkName:"form",*/ './views/Forms/StepForm/Step1'
+                      /* webpackChunkName: "form" */ './views/Forms/StepForm/Step1'
                     ),
                 },
                 {
@@ -94,7 +103,7 @@ const router = new Router({
                   name: 'confirm',
                   component: () =>
                     import(
-                      /*webpackChunkName:"form",*/ './views/Forms/StepForm/Step2'
+                      /* webpackChunkName: "form" */ './views/Forms/StepForm/Step2'
                     ),
                 },
                 {
@@ -102,7 +111,7 @@ const router = new Router({
                   name: 'result',
                   component: () =>
                     import(
-                      /*webpackChunkName:"form",*/ './views/Forms/StepForm/Step3'
+                      /* webpackChunkName: "form" */ './views/Forms/StepForm/Step3'
                     ),
                 },
               ],
@@ -112,8 +121,15 @@ const router = new Router({
       ],
     },
     {
+      path: '/403',
+      name: '403',
+      hideInMenu: true,
+      component: Forbidden,
+    },
+    {
       path: '*',
       name: '404',
+      hideInMenu: true,
       component: NotFound,
     },
   ],
